@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainable AI Coding with DDD &amp; Modular Monoliths | Sails</title>
+<meta name="description" content="AI coding tools erode your architecture without guardrails. Learn how Domain-Driven Design and Modular Monoliths keep AI-generated code sustainable.">
+<meta name="keywords" content="domain driven design AI, modular monolith architecture, AI coding guardrails, vibe coding architecture, AI assisted development best practices, DDD bounded context, enterprise software architecture 2026, AI code generation maintainability, sustainable AI development, GitHub Copilot architecture, Cursor AI guardrails, AI technical debt">
+<meta name="author" content="Sails Software">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sailssoftware.com/blog/sustainable-ai-coding-ddd-modular-monolith">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sustainable AI Coding with DDD and Modular Monoliths">
+<meta property="og:description" content="AI coding tools erode your architecture without guardrails. Learn how Domain-Driven Design and Modular Monoliths keep AI-generated code sustainable.">
+<meta property="og:url" content="https://sailssoftware.com/blog/sustainable-ai-coding-ddd-modular-monolith">
+<meta property="og:site_name" content="Sails Software">
+<meta property="og:image" content="https://sailssoftware.com/wp-content/uploads/sustainable-ai-coding-og.jpg">
+<meta property="article:published_time" content="2026-06-26T00:00:00+00:00">
+<meta property="article:author" content="Poorna Chandar Vadada">
+<meta property="article:section" content="AI Engineering">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sustainable AI Coding with DDD and Modular Monoliths">
+<meta name="twitter:description" content="AI generates code faster than ever. Without guardrails, it silently erodes your architecture. Here's how to fix that.">
+<meta name="twitter:image" content="https://sailssoftware.com/wp-content/uploads/sustainable-ai-coding-og.jpg">
+<meta name="twitter:site" content="@SailsSoftware">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Schemas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Sustainable AI Coding with DDD and Modular Monoliths",
+  "description": "AI coding tools generate features in seconds — but without architectural guardrails, they erode your codebase. Learn how Domain-Driven Design and Modular Monolith architecture keep AI-generated code sustainable.",
+  "image": "https://sailssoftware.com/wp-content/uploads/sustainable-ai-coding-og.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Poorna Chandar Vadada",
+    "jobTitle": "Lead Software Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Sails Software",
+      "url": "https://sailssoftware.com"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sails Software",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sailssoftware.com/wp-content/uploads/sails-logo.png"
+    }
+  },
+  "datePublished": "2026-06-26",
+  "dateModified": "2026-06-26",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sailssoftware.com/blog/sustainable-ai-coding-ddd-modular-monolith"
+  },
+  "keywords": ["domain driven design", "modular monolith", "AI coding guardrails", "vibe coding", "enterprise software architecture", "bounded context", "AI technical debt"],
+  "articleSection": "AI Engineering",
+  "wordCount": "1600",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".sails-hero h1", ".sails-hero-sub", ".sails-insight", ".sails-callout"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sails Software",
+  "url": "https://sailssoftware.com",
+  "logo": "https://sailssoftware.com/wp-content/uploads/sails-logo.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/sails-software",
+    "https://twitter.com/SailsSoftware"
+  ],
+  "description": "Sails Software is a Michigan-based enterprise AI and GenAI implementation firm specializing in digital transformation for pharma, biotech, life sciences, and BFSI sectors."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sailssoftware.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://sailssoftware.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sustainable AI Coding with DDD and Modular Monoliths",
+      "item": "https://sailssoftware.com/blog/sustainable-ai-coding-ddd-modular-monolith"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is vibe coding and why is it risky without architecture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vibe coding is a development style where engineers express intent in natural language and AI generates the implementation. It is productive but risky without guardrails — AI optimises for what you ask, not for the architecture you intended. Without explicit boundaries, it will generate business logic in controllers, tight coupling between modules, and duplicate validation logic scattered across layers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Modular Monolith and how does it differ from microservices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Modular Monolith implements Domain-Driven Design principles inside a single deployable application — giving you strong business boundaries without the distributed-systems complexity of microservices. Each module is an independent business capability with its own rules, data access, and lifecycle, while the application deploys as a single unit. It is the right starting point for most teams adopting DDD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are AI guardrails in software development?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI guardrails are structured files that travel with your codebase — such as .architecture.md, .ddd-rules.md, and .ai-guardrails.md — that define architectural constraints for both human developers and AI coding assistants. When loaded as context in tools like Cursor, Claude Code, or GitHub Copilot, they ensure AI-generated code respects domain boundaries, layer responsibilities, and naming conventions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Bounded Context in Domain-Driven Design?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Bounded Context is a clearly defined area of the system with explicit ownership over its business rules, domain model, use cases, and data. It prevents different business capabilities from bleeding into one another. In an e-commerce system, for example, Order Management, Inventory, Billing, and Shipping would each be separate bounded contexts with their own rules and data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Aggregates prevent architectural drift in AI-generated code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aggregates are clusters of domain objects treated as a single unit that enforce business rules and prevent invalid state transitions. When AI is instructed to generate business operations through aggregates rather than direct state manipulation, an entire class of architectural violations — bypassed business rules, invalid state transitions, missing validation — simply cannot occur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should enterprise teams start implementing DDD with AI tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with a single .ai-guardrails.md file in your repository that captures your three most important architectural rules. Give it to your AI tool as context on your next feature. Then progressively add bounded context structure, aggregate patterns, and module boundaries. Sails Software can provide guardrail templates and implementation guidance for enterprise teams."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Implement AI Guardrails with DDD and Modular Monolith",
+  "description": "A step-by-step approach to keeping AI-generated code architecturally sound using Domain-Driven Design and Modular Monolith structure.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Create your .ai-guardrails.md file",
+      "text": "Define your three most important architectural rules in a guardrail file. Include domain layer constraints, module boundary rules, and layer dependency directions. Load this file as context in your AI coding tool."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Define your Bounded Contexts",
+      "text": "Map your system to business capabilities rather than technical layers. Each bounded context owns its business rules, domain model, use cases, and data. Document these in your .ddd-rules.md file."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Structure your codebase as a Modular Monolith",
+      "text": "Organise modules by business capability, each with Domain, Application, and Infrastructure sub-layers. The directory structure itself becomes an architectural instruction for AI tools."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Implement Aggregates for business rule enforcement",
+      "text": "Replace direct state manipulation with aggregate methods that validate business rules before allowing state transitions. Instruct AI to generate operations through aggregates only."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Write DDD-oriented AI prompts",
+      "text": "Specify the bounded context, layer, responsibilities, and architectural constraints in every AI prompt. Reference your guardrail files explicitly. The prompt is longer but the output is architecturally correct."
+    }
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-page: #000000;
+    --bg-hero: #061421;
+    --bg-card: #112436;
+    --bg-card-alt: #0d1e30;
+    --cyan: #00B9FF;
+    --cyan-dim: rgba(0, 185, 255, 0.12);
+    --cyan-glow: rgba(0, 185, 255, 0.25);
+    --navy: #064A70;
+    --mid-blue: #0C8DC6;
+    --text-white: #FFFFFF;
+    --text-muted: #8faec9;
+    --text-body: #c8daea;
+    --border: rgba(0, 185, 255, 0.15);
+    --font: 'Poppins', sans-serif;
+    --reading-w: 780px;
+    --radius: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-body);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* PROGRESS BAR */
+  #sails-progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--cyan), var(--mid-blue));
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
+  /* HERO */
+  .sails-hero {
+    background: var(--bg-hero);
+    padding: 80px 24px 72px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .sails-hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,185,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .sails-hero-inner { max-width: var(--reading-w); margin: 0 auto; }
+
+  .sails-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+  }
+  .sails-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 2px;
+    background: var(--cyan);
+    border-radius: 2px;
+  }
+
+  .sails-hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--text-white);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .sails-hero h1 em { font-style: normal; color: var(--cyan); }
+
+  .sails-hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    font-weight: 400;
+    color: var(--text-muted);
+    max-width: 620px;
+    line-height: 1.65;
+    margin-bottom: 36px;
+  }
+
+  .sails-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+  .sails-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .sails-meta-item svg {
+    width: 14px; height: 14px;
+    stroke: var(--cyan);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+  .sails-tag {
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,185,255,0.25);
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* LAYOUT */
+  .sails-body {
+    max-width: var(--reading-w);
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+  }
+
+  /* INSIGHT CARD */
+  .sails-insight {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--cyan);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin: 0 0 52px;
+  }
+  .sails-insight-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 10px;
+  }
+  .sails-insight p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-white);
+    line-height: 1.6;
+  }
+
+  /* PROSE */
+  .sails-prose h2 {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--text-white);
+    margin: 56px 0 18px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    line-height: 1.25;
+  }
+  .sails-h2-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,185,255,0.3);
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .sails-prose p {
+    font-size: 16px;
+    color: var(--text-body);
+    margin-bottom: 22px;
+    line-height: 1.8;
+  }
+  .sails-prose strong { color: var(--text-white); font-weight: 600; }
+
+  /* CALLOUT */
+  .sails-callout {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: #00B9FF;
+    border: none;
+    border-radius: var(--radius);
+    position: relative;
+  }
+  .sails-callout::before {
+    content: '\201C';
+    font-size: 72px;
+    line-height: 1;
+    color: #ffffff;
+    opacity: 0.5;
+    position: absolute;
+    top: 10px; left: 20px;
+    font-family: Georgia, serif;
+  }
+  .sails-callout p {
+    font-size: clamp(17px, 2.5vw, 21px);
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.55;
+    margin: 0;
+    padding-left: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* STATS */
+  .sails-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 48px 0;
+  }
+  .sails-stat { background: var(--bg-card); padding: 28px 24px; text-align: center; }
+  .sails-stat-num {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .sails-stat-label { font-size: 12px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
+
+  /* CODE BLOCK */
+  .sails-code-wrap {
+    margin: 28px 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .sails-code-label {
+    background: var(--navy);
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sails-code-label::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--cyan);
+    opacity: 0.6;
+  }
+  .sails-code-wrap pre {
+    background: #050e18;
+    padding: 20px 22px;
+    overflow-x: auto;
+    margin: 0;
+  }
+  .sails-code-wrap code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #a8d8f0;
+    white-space: pre;
+  }
+  .sails-code-wrap code .comment { color: #4a6b7a; }
+  .sails-code-wrap code .key { color: var(--cyan); }
+  .sails-code-wrap code .dir { color: #7ecfff; }
+  .sails-code-wrap code .bad { color: #f78080; }
+  .sails-code-wrap code .good { color: #7de8a0; }
+
+  /* COMPARISON TABLE */
+  .sails-table-wrap {
+    margin: 32px 0;
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .sails-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .sails-table thead tr {
+    background: var(--navy);
+  }
+  .sails-table th {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .sails-table td {
+    padding: 13px 18px;
+    color: var(--text-body);
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .sails-table tbody tr:nth-child(even) td { background: rgba(0,185,255,0.03); }
+  .sails-table tbody tr:hover td { background: rgba(0,185,255,0.06); }
+  .sails-table td:first-child { color: var(--text-white); font-weight: 500; }
+
+  /* PRINCIPLE CARDS */
+  .sails-principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 40px 0 52px;
+  }
+  .sails-principle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .sails-principle:hover { border-color: rgba(0,185,255,0.4); transform: translateY(-2px); }
+  .sails-principle-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,185,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .sails-principle-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--cyan);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .sails-principle h3 { font-size: 14px; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
+  .sails-principle p { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+
+  /* STEPS */
+  .sails-steps {
+    list-style: none;
+    margin: 32px 0 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sails-steps li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+  }
+  .sails-step-num {
+    min-width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,185,255,0.25);
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .sails-step-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--text-white); margin-bottom: 4px; }
+  .sails-step-text span { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* INLINE LINK */
+  .sails-inline-link {
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,185,255,0.3);
+    transition: border-color 0.2s;
+  }
+  .sails-inline-link:hover { border-color: var(--cyan); }
+
+  /* RELATED */
+  .sails-related { margin: 0 0 8px; }
+  .sails-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .sails-related-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sails-related-card:hover { border-color: rgba(0,185,255,0.4); transform: translateY(-2px); }
+  .sails-related-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); }
+  .sails-related-title { font-size: 13px; font-weight: 600; color: var(--text-white); line-height: 1.5; }
+
+  /* FAQ */
+  .sails-faq-section {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+  .sails-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sails-section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cyan);
+    border-radius: 2px;
+  }
+  .sails-faq-title {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+  .sails-faq { display: flex; flex-direction: column; gap: 12px; }
+  .sails-faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .sails-faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .sails-faq-q span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-white);
+    line-height: 1.45;
+    font-family: var(--font);
+  }
+  .sails-faq-chevron {
+    width: 20px; height: 20px;
+    border-radius: 6px;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,185,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s, background 0.2s;
+  }
+  .sails-faq-chevron svg {
+    width: 12px; height: 12px;
+    stroke: var(--cyan);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s;
+  }
+  .sails-faq-item.open .sails-faq-chevron svg { transform: rotate(180deg); }
+  .sails-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .sails-faq-a-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+  .sails-faq-item.open .sails-faq-a { max-height: 300px; }
+
+  /* CTA */
+  .sails-cta-block {
+    margin-top: 64px;
+    padding: 40px;
+    background: linear-gradient(135deg, #061f35, #0a2f4a);
+    border: 1px solid rgba(0,185,255,0.2);
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .sails-cta-block::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,185,255,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .sails-cta-block h3 { font-size: clamp(18px, 3vw, 24px); font-weight: 700; color: var(--text-white); margin-bottom: 12px; letter-spacing: -0.01em; position: relative; }
+  .sails-cta-block p { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; position: relative; }
+  .sails-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--cyan);
+    color: #000;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    position: relative;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .sails-cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .sails-cta-btn svg { width: 16px; height: 16px; stroke: #000; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+
+  /* ===== AUTHOR BIO ===== */
+  .sails-author {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin: 0 0 48px;
+  }
+  .sails-author-avatar-org {
+    width: 110px; height: 110px;
+    border-radius: 14px;
+    border: 2px solid rgba(0,185,255,0.3);
+    flex-shrink: 0;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .sails-author-name { font-size: 15px; font-weight: 700; color: var(--text-white); margin-bottom: 2px; }
+  .sails-author-role { font-size: 12px; font-weight: 500; color: var(--cyan); margin-bottom: 10px; letter-spacing: 0.02em; }
+  .sails-author-bio { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+
+  @media (max-width: 768px) {
+    .sails-author { flex-direction: column; gap: 16px; }
+  }
+
+  /* DIVIDER */
+  .sails-divider { height: 1px; background: var(--border); margin: 48px 0; }
+
+  /* SCROLL REVEAL */
+  .sails-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .sails-reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sails-reveal { opacity: 1; transform: none; transition: none; }
+    .sails-faq-a { transition: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) { .sails-hero { padding: 64px 24px 56px; } }
+
+  @media (max-width: 768px) {
+    .sails-principles { grid-template-columns: 1fr; }
+    .sails-stats { grid-template-columns: 1fr; gap: 0; }
+    .sails-related-grid { grid-template-columns: 1fr; }
+    .sails-hero { padding: 48px 20px 44px; }
+    .sails-body { padding: 48px 20px 64px; }
+    .sails-insight { padding: 22px; }
+    .sails-callout { padding: 24px 22px; }
+    .sails-cta-block { padding: 32px 24px; }
+    .sails-table { font-size: 13px; }
+  }
+
+  @media (max-width: 480px) {
+    .sails-hero h1 { font-size: 26px; }
+    .sails-faq-q span { font-size: 13px; }
+    .sails-steps li { padding: 16px; }
+    .sails-callout::before { font-size: 52px; }
+    .sails-code-wrap code { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="sails-progress-bar" aria-hidden="true"></div>
+
+<!-- HERO -->
+<header class="sails-hero">
+  <div class="sails-hero-inner">
+    <div class="sails-eyebrow">AI Architecture</div>
+    <h1>Sustainable AI Coding<br>with <em>DDD &amp; Modular Monoliths</em></h1>
+    <p class="sails-hero-sub">AI coding assistants can generate entire features in seconds. Without architectural guardrails, they optimise for functionality — not maintainability. Here's how to fix that.</p>
+    <div class="sails-meta">
+      <div class="sails-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Poorna Chandar Vadada
+      </div>
+      <div class="sails-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        10 min read
+      </div>
+      <div class="sails-meta-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        June 26, 2026
+      </div>
+      <span class="sails-tag">DDD</span>
+      <span class="sails-tag">Modular Monolith</span>
+      <span class="sails-tag">AI Guardrails</span>
+    </div>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="sails-body">
+
+  <div class="sails-insight sails-reveal">
+    <div class="sails-insight-label">TL;DR</div>
+    <p>AI coding assistants can generate entire features in seconds — but without architectural guardrails, they optimise for functionality, not maintainability. Domain-Driven Design and a Modular Monolith give you the boundaries AI needs to generate code that <strong>strengthens your architecture instead of quietly eroding it.</strong></p>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">01</span>The Hidden Cost of Moving Fast with AI</h2>
+    <p>There is a moment every engineering team eventually hits. You have adopted AI-assisted development. Productivity is genuinely impressive — APIs, schemas, validation logic, tests, entire features generated in minutes. The backlog is moving. Stakeholders are happy.</p>
+    <p>Then, six months later, you open a pull request and something feels wrong.</p>
+    <p>Business logic has migrated into controllers. Modules that should be independent are reaching directly into each other's database tables. The same validation rule exists in three different places. A seemingly isolated change breaks something in a completely unrelated part of the system.</p>
+    <p>The application still works. But <strong>the architecture has been silently degrading with every generated feature.</strong></p>
+  </div>
+
+  <div class="sails-callout sails-reveal">
+    <p>AI optimises for what you ask it to do — not for the architecture you intended to build. Without explicit boundaries, AI takes the path of least resistance. That path rarely respects domain ownership.</p>
+  </div>
+
+  <div class="sails-prose sails-reveal">
+    <p>The problem is not code generation. <strong>The problem is unguided code generation.</strong> This is where Domain-Driven Design and Modular Monolith Architecture become essential — not as theoretical ideals, but as practical guardrails that give AI the boundaries it needs to generate sustainable software.</p>
+  </div>
+
+  <div class="sails-stats sails-reveal">
+    <div class="sails-stat">
+      <div class="sails-stat-num">6mo</div>
+      <div class="sails-stat-label">Typical lag before architectural drift becomes visible in AI-assisted codebases</div>
+    </div>
+    <div class="sails-stat">
+      <div class="sails-stat-num">3×</div>
+      <div class="sails-stat-label">Cost to recover boundaries ignored early vs. enforced from the start</div>
+    </div>
+    <div class="sails-stat">
+      <div class="sails-stat-num">1 file</div>
+      <div class="sails-stat-label">The minimum to start — a single .ai-guardrails.md changes what AI generates</div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">02</span>The Rise of Vibe Coding — and Its Limits</h2>
+    <p>Modern AI coding assistants have given rise to what many are calling <strong>Vibe Coding</strong> — a development style where engineers express intent in natural language and AI generates the implementation.</p>
+    <p>Tell an AI to create an Order Processing API with validation and persistence — within seconds, it may produce hundreds of lines of code. And it will likely work. But left unconstrained, AI-generated code introduces a predictable set of architectural issues:</p>
+  </div>
+
+  <div class="sails-principles sails-reveal">
+    <div class="sails-principle">
+      <div class="sails-principle-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <h3>Logic in the Wrong Place</h3>
+      <p>Business rules end up inside controllers, repositories, or infrastructure — anywhere except the domain where they belong.</p>
+    </div>
+    <div class="sails-principle">
+      <div class="sails-principle-icon"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></div>
+      <h3>Tight Coupling</h3>
+      <p>Modules that should be independent end up reaching directly into each other's database tables and internal logic.</p>
+    </div>
+    <div class="sails-principle">
+      <div class="sails-principle-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <h3>Duplicate Validation</h3>
+      <p>The same rule exists in three different places. When it changes, one instance gets missed — and bugs ship to production.</p>
+    </div>
+    <div class="sails-principle">
+      <div class="sails-principle-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+      <h3>Anemic Domain Models</h3>
+      <p>Domain objects become data containers with no real behaviour — all logic leaks out into services, making the model useless as a guardrail.</p>
+    </div>
+  </div>
+
+  <div class="sails-callout sails-reveal">
+    <p>Vibe Coding is not the problem. Vibe Coding without architecture is.</p>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">03</span>Domain-Driven Design — Modelling Around Business Reality</h2>
+    <p>Domain-Driven Design (DDD) organises systems around <strong>business capabilities rather than technical components.</strong> Most codebases are structured around technical layers. DDD structures them around the business instead.</p>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">Without DDD — Technical Layer Structure</div>
+    <pre><code><span class="bad">controllers/</span>
+<span class="bad">services/</span>
+<span class="bad">repositories/</span>
+
+<span class="comment">// No guidance to AI about ownership or responsibility.
+// AI will mix concerns freely across these layers.</span></code></pre>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">With DDD — Business Capability Structure</div>
+    <pre><code><span class="good">OrderManagement/</span>
+<span class="good">InventoryManagement/</span>
+<span class="good">Billing/</span>
+<span class="good">CustomerManagement/</span>
+
+<span class="comment">// The directory structure is itself an architectural instruction.
+// AI knows exactly where new code belongs.</span></code></pre>
+  </div>
+
+  <div class="sails-prose sails-reveal">
+    <p>DDD also introduces a shared vocabulary — called a <strong>Ubiquitous Language</strong> — that both the codebase and the team use consistently. When a developer asks AI to "submit an order," DDD ensures that concept maps to a specific, well-defined operation in a specific, well-defined place — not a vague action that could mean six different things to six different layers.</p>
+  </div>
+
+  <!-- Bounded Context Table -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">04</span>Bounded Contexts — The First Guardrail</h2>
+    <p>A <strong>Bounded Context</strong> is a clearly defined area of the system with explicit ownership over its business rules, domain model, use cases, and data. It is a hard boundary that prevents different business capabilities from bleeding into one another.</p>
+  </div>
+
+  <div class="sails-table-wrap sails-reveal">
+    <table class="sails-table" aria-label="Bounded Contexts in an e-commerce system">
+      <thead>
+        <tr>
+          <th>Bounded Context</th>
+          <th>Owns</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Order Management</td><td>Order lifecycle, submission rules, fulfilment status</td></tr>
+        <tr><td>Inventory</td><td>Stock levels, reservation logic, availability checks</td></tr>
+        <tr><td>Billing</td><td>Payment processing, invoicing, refund rules</td></tr>
+        <tr><td>Customer</td><td>Profile data, preferences, identity</td></tr>
+        <tr><td>Shipping</td><td>Carrier logic, delivery tracking, address validation</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sails-prose sails-reveal">
+    <p>Without bounded contexts, AI generates code that mixes these concerns freely — an Order Service that directly queries Inventory tables, a Billing module that reaches into Customer data, a controller that handles logic from three domains. <strong>With bounded contexts, you instruct AI to operate within a defined boundary.</strong> The scope is explicit. The ownership is clear.</p>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">05</span>Modular Monolith — The Right Starting Point</h2>
+    <p>Many teams assume adopting DDD means adopting microservices. This assumption regularly leads to unnecessary complexity and operational overhead. The reality: <strong>DDD is about business boundaries, not deployment boundaries.</strong></p>
+    <p>A Modular Monolith implements DDD principles inside a single deployable application — giving you strong business boundaries without distributed-systems complexity.</p>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">Modular Monolith Structure</div>
+    <pre><code><span class="dir">OrderManagement/</span>
+  <span class="key">Domain/</span>          <span class="comment">&lt;- Business rules, aggregates, domain events</span>
+  <span class="key">Application/</span>     <span class="comment">&lt;- Use cases, orchestration, application services</span>
+  <span class="key">Infrastructure/</span>  <span class="comment">&lt;- Persistence, external integrations</span>
+
+<span class="dir">InventoryManagement/</span>
+  <span class="key">Domain/</span>
+  <span class="key">Application/</span>
+  <span class="key">Infrastructure/</span>
+
+<span class="dir">BillingManagement/</span>
+  <span class="key">Domain/</span>
+  <span class="key">Application/</span>
+  <span class="key">Infrastructure/</span></code></pre>
+  </div>
+
+  <div class="sails-table-wrap sails-reveal">
+    <table class="sails-table" aria-label="Modular Monolith benefits">
+      <thead>
+        <tr><th>Operational Benefits</th><th>Architectural Benefits</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Single deployment pipeline</td><td>Strong business boundary enforcement</td></tr>
+        <tr><td>Simpler local debugging</td><td>Each module independently evolvable</td></tr>
+        <tr><td>Lower infrastructure cost</td><td>Clear ownership and responsibility</td></tr>
+        <tr><td>Faster onboarding</td><td>Pathways to microservices when genuinely needed</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sails-callout sails-reveal">
+    <p>Design as if modules could become microservices. Deploy as a monolith until business needs justify distribution. Avoid premature complexity while preserving future options.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">06</span>Guardrail Files — Your Architectural Constitution</h2>
+    <p>The most practical implementation of guardrails is a set of structured files that travel with the codebase and are loaded as context when working with AI tools such as Cursor, Claude Code, or GitHub Copilot.</p>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">Recommended Guardrail Files</div>
+    <pre><code><span class="good">.architecture.md</span>        <span class="comment">&lt;- Overall system design decisions</span>
+<span class="good">.ddd-rules.md</span>           <span class="comment">&lt;- DDD-specific constraints</span>
+<span class="good">.coding-standards.md</span>    <span class="comment">&lt;- Layer dependencies, naming, patterns</span>
+<span class="good">.ai-guardrails.md</span>       <span class="comment">&lt;- Explicit rules for AI-assisted development</span></code></pre>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">Example .ai-guardrails.md</div>
+    <pre><code><span class="key"># Architecture Rules</span>
+
+<span class="key">## Domain Layer</span>
+Business logic must exist only in:
+  - Entities
+  - Aggregates
+  - Domain Services
+
+<span class="bad">Forbidden locations for business logic:</span>
+  - Controllers
+  - Repositories
+  - Infrastructure components
+
+<span class="key">## Module Boundaries</span>
+Modules cannot access each other's database tables directly.
+Cross-module communication must use:
+  - Domain Events (async state propagation)
+  - Application Contracts (synchronous queries)
+
+<span class="key">## Layer Dependencies</span>
+<span class="good">Allowed:</span>   API -> Application -> Domain
+<span class="bad">Forbidden:</span> Domain -> Infrastructure | Domain -> API</code></pre>
+  </div>
+
+  <div class="sails-prose sails-reveal">
+    <p>These files serve a dual purpose: documentation for human developers and <strong>active constraints for AI assistants.</strong> When an AI tool has these files in context, it generates code within the defined boundaries rather than inventing its own.</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">07</span>Aggregates — Enforcing Business Invariants</h2>
+    <p>One of the most important guardrails in DDD is the <strong>Aggregate</strong>: a cluster of domain objects treated as a single unit that enforces business rules and prevents invalid state transitions.</p>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">Without Aggregate — Direct State Manipulation</div>
+    <pre><code><span class="bad">order.setStatus("Submitted");</span>
+<span class="bad">order.setSubmittedAt(LocalDateTime.now());</span>
+<span class="comment">// Nothing stops this from being called at the wrong time,
+// with missing data, or from violating business rules.</span></code></pre>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">With Aggregate — Behaviour-Driven, Rule-Enforced</div>
+    <pre><code><span class="good">order.submit(submittedBy, currentInventory);</span>
+<span class="comment">// The aggregate validates:
+//   - Required fields are present
+//   - Order is in a valid state to be submitted
+//   - Inventory is available
+//   - Business rules are satisfied
+// Only then does the state change.</span></code></pre>
+  </div>
+
+  <div class="sails-prose sails-reveal">
+    <p>When AI is instructed to generate business operations through aggregates rather than direct state manipulation, <strong>a large class of architectural violations simply cannot occur.</strong> The aggregate is both the boundary and the enforcer.</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">08</span>Better Prompts — The Simplest Improvement</h2>
+    <p>Most developers write AI prompts like this:</p>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">Vague Prompt — No Architectural Guidance</div>
+    <pre><code><span class="bad">"Create an Order Service."</span>
+
+<span class="comment">// AI has no guidance on boundaries, layers, or responsibilities.
+// Output is functional. Architecturally ambiguous.</span></code></pre>
+  </div>
+
+  <div class="sails-code-wrap sails-reveal">
+    <div class="sails-code-label">DDD-Oriented Prompt — Explicit Constraints</div>
+    <pre><code><span class="good">"Create an Order Aggregate within the OrderManagement bounded context.</span>
+<span class="good"> Business rules must reside in the Domain layer.</span>
+<span class="good"> Repositories belong to Infrastructure and persist aggregates only.</span>
+<span class="good"> Application Services may orchestrate workflows but must not contain</span>
+<span class="good"> business logic. Use Domain Events for cross-module communication.</span>
+<span class="good"> Follow the architecture defined in .ai-guardrails.md."</span>
+
+<span class="comment">// The prompt is longer. The output is architecturally correct.</span></code></pre>
+  </div>
+
+  <!-- Section 9 — How to Start -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">09</span>How to Start — Five Practical Steps</h2>
+    <p>Architecture and AI are not in tension. But architecture has to come first. Here is where to begin:</p>
+  </div>
+
+  <ul class="sails-steps sails-reveal">
+    <li>
+      <div class="sails-step-num">1</div>
+      <div class="sails-step-text">
+        <strong>Create your .ai-guardrails.md file</strong>
+        <span>Capture your three most important architectural rules. Load this file as context on your next AI-assisted feature. Observe the difference in what it generates.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sails-step-num">2</div>
+      <div class="sails-step-text">
+        <strong>Map your Bounded Contexts</strong>
+        <span>Identify your system's core business capabilities. Each becomes a bounded context with explicit ownership of its rules and data. Document these in .ddd-rules.md.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sails-step-num">3</div>
+      <div class="sails-step-text">
+        <strong>Restructure into a Modular Monolith</strong>
+        <span>Reorganise your codebase by business capability. Each module gets Domain, Application, and Infrastructure sub-layers. The structure becomes an architectural instruction AI respects.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sails-step-num">4</div>
+      <div class="sails-step-text">
+        <strong>Implement Aggregates for business rules</strong>
+        <span>Replace direct state manipulation with aggregate methods. Instruct AI to generate all business operations through aggregates. Bypass routes become structurally impossible.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sails-step-num">5</div>
+      <div class="sails-step-text">
+        <strong>Write DDD-oriented prompts</strong>
+        <span>Specify bounded context, layer, responsibilities, and guardrail file reference in every AI prompt. Longer prompt, architecturally correct output — every time.</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="sails-divider"></div>
+
+  <!-- Closing -->
+  <div class="sails-prose sails-reveal">
+    <h2><span class="sails-h2-num">10</span>The Real Question for Engineering Leaders</h2>
+    <p>The industry has moved past debating whether AI will generate code. It does. The question engineering leaders need to answer now is: <strong>what architectural principles will guide the code AI generates?</strong></p>
+    <p>Organisations that adopt AI coding tools without guardrails will accelerate — but they will accelerate in the wrong direction, compounding technical debt faster than any team in history could manage manually.</p>
+    <p>Organisations that combine AI-assisted development with Domain-Driven Design, a Modular Monolith structure, and well-defined guardrails achieve something qualitatively different: <strong>sustainable engineering velocity</strong> — the ability to ship fast today without undermining the ability to ship fast next year.</p>
+    <p>The architectural decisions you make during AI-assisted development compound. Boundaries established early stay cheap to enforce. <a href="https://sailssoftware.com/blog/ai-engineering-mindset" class="sails-inline-link">As we explored in our AI Engineering Mindset post</a>, understanding the problem deeply before generating code is what separates teams that scale from teams that stall.</p>
+  </div>
+
+  <div class="sails-callout sails-reveal">
+    <p>In the age of Vibe Coding, architecture is not optional. It is the difference between accelerating innovation and accelerating technical debt.</p>
+  </div>
+
+  <div class="sails-divider"></div>
+
+  <!-- Related Posts -->
+  <div class="sails-related sails-reveal">
+    <div class="sails-section-label">Continue Reading</div>
+    <div class="sails-related-grid">
+      <a href="https://sailssoftware.com/blog/ai-engineering-mindset" class="sails-related-card">
+        <div class="sails-related-tag">Engineering Mindset</div>
+        <div class="sails-related-title">The New AI Engineering Mindset: AI Shifts Effort, Not Responsibility</div>
+      </a>
+      <a href="https://sailssoftware.com/blog/enterprise-ai-implementation" class="sails-related-card">
+        <div class="sails-related-tag">AI Strategy</div>
+        <div class="sails-related-title">Enterprise GenAI Implementation: Where to Start and What to Avoid</div>
+      </a>
+      <a href="https://sailssoftware.com/blog/ai-in-life-sciences" class="sails-related-card">
+        <div class="sails-related-tag">Life Sciences</div>
+        <div class="sails-related-title">How Pharma and Biotech Teams Are Deploying AI Without Breaking Compliance</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="sails-divider"></div>
+
+  <!-- Author Bio -->
+  <div class="sails-author sails-reveal">
+    <img class="sails-author-avatar-org" src="data:image/jpeg;base64,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" alt="Poorna Chandar Vadada, Lead Software Engineer at Sails Software" width="110" height="110">
+    <div class="sails-author-info">
+      <div class="sails-author-name">Poorna Chandar Vadada</div>
+      <div class="sails-author-role">Lead Software Engineer · Sails Software</div>
+      <p class="sails-author-bio">The Poorna Chandar Vadada works with enterprise organisations in pharma, biotech, life sciences, and BFSI to implement AI-assisted development practices that scale — combining DDD principles, modular architecture, and practical guardrail systems that keep AI-generated code maintainable long-term.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="sails-faq-section sails-reveal" aria-labelledby="faq-heading">
+    <div class="sails-section-label">Common Questions</div>
+    <h2 id="faq-heading" class="sails-faq-title">Frequently Asked Questions</h2>
+    <div class="sails-faq" role="list">
+
+      <div class="sails-faq-item" role="listitem">
+        <button class="sails-faq-q" aria-expanded="false">
+          <span>What is vibe coding and why is it risky without architecture?</span>
+          <div class="sails-faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="sails-faq-a" role="region">
+          <div class="sails-faq-a-inner">Vibe coding is a development style where engineers express intent in natural language and AI generates the implementation. It is productive but risky without guardrails — AI optimises for what you ask, not for the architecture you intended. Without explicit boundaries, it generates business logic in controllers, tight coupling between modules, and duplicate validation logic scattered across layers.</div>
+        </div>
+      </div>
+
+      <div class="sails-faq-item" role="listitem">
+        <button class="sails-faq-q" aria-expanded="false">
+          <span>What is a Modular Monolith and how does it differ from microservices?</span>
+          <div class="sails-faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="sails-faq-a" role="region">
+          <div class="sails-faq-a-inner">A Modular Monolith implements DDD principles inside a single deployable application — giving you strong business boundaries without distributed-systems complexity. Each module is an independent business capability with its own rules, data access, and lifecycle, while the application deploys as a single unit. It is the right starting point for most teams adopting DDD.</div>
+        </div>
+      </div>
+
+      <div class="sails-faq-item" role="listitem">
+        <button class="sails-faq-q" aria-expanded="false">
+          <span>What are AI guardrails in software development?</span>
+          <div class="sails-faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="sails-faq-a" role="region">
+          <div class="sails-faq-a-inner">AI guardrails are structured files that travel with your codebase — such as .architecture.md, .ddd-rules.md, and .ai-guardrails.md — that define architectural constraints for both human developers and AI coding assistants. When loaded as context in tools like Cursor, Claude Code, or GitHub Copilot, they ensure AI-generated code respects domain boundaries, layer responsibilities, and naming conventions.</div>
+        </div>
+      </div>
+
+      <div class="sails-faq-item" role="listitem">
+        <button class="sails-faq-q" aria-expanded="false">
+          <span>What is a Bounded Context in Domain-Driven Design?</span>
+          <div class="sails-faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="sails-faq-a" role="region">
+          <div class="sails-faq-a-inner">A Bounded Context is a clearly defined area of the system with explicit ownership over its business rules, domain model, use cases, and data. It prevents different business capabilities from bleeding into one another. In an e-commerce system, Order Management, Inventory, Billing, and Shipping would each be separate bounded contexts with their own rules and data.</div>
+        </div>
+      </div>
+
+      <div class="sails-faq-item" role="listitem">
+        <button class="sails-faq-q" aria-expanded="false">
+          <span>How do Aggregates prevent architectural drift in AI-generated code?</span>
+          <div class="sails-faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="sails-faq-a" role="region">
+          <div class="sails-faq-a-inner">Aggregates are clusters of domain objects treated as a single unit that enforce business rules and prevent invalid state transitions. When AI is instructed to generate business operations through aggregates rather than direct state manipulation, an entire class of architectural violations — bypassed business rules, invalid state transitions, missing validation — simply cannot occur.</div>
+        </div>
+      </div>
+
+      <div class="sails-faq-item" role="listitem">
+        <button class="sails-faq-q" aria-expanded="false">
+          <span>How can Sails Software help us implement DDD and guardrails for our AI development?</span>
+          <div class="sails-faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="sails-faq-a" role="region">
+          <div class="sails-faq-a-inner">Sails Software helps enterprise engineering teams design and implement DDD-aligned architectures, create guardrail file systems, and establish AI-assisted development workflows that stay maintainable at scale. We can provide guardrail templates, bounded context mapping workshops, and hands-on implementation support for pharma, biotech, life sciences, and BFSI engineering teams.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="sails-cta-block sails-reveal">
+    <h3>Ready to Build AI into Your Architecture the Right Way?</h3>
+    <p>Sails Software helps enterprise engineering teams implement DDD guardrails and Modular Monolith structure — so AI generates code that strengthens your architecture, not one that slowly dismantles it.</p>
+    <a href="https://sailssoftware.com/contact-us/" class="sails-cta-btn">
+      Talk to Our Team
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+</main>
+
+<script>
+(function() {
+  // Reading progress
+  var bar = document.getElementById('sails-progress-bar');
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var st = window.scrollY || h.scrollTop;
+      var sh = h.scrollHeight - h.clientHeight;
+      bar.style.width = sh > 0 ? ((st / sh) * 100) + '%' : '0%';
+    }, { passive: true });
+  }
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.sails-reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el) { obs.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+  }
+
+  // FAQ accordion
+  var items = document.querySelectorAll('.sails-faq-item');
+  items.forEach(function(item) {
+    var btn = item.querySelector('.sails-faq-q');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i) {
+        i.classList.remove('open');
+        var b = i.querySelector('.sails-faq-q');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
