@@ -616,6 +616,29 @@
   .sails-step-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--text-white); margin-bottom: 4px; }
   .sails-step-text span { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
+  /* CODE NOTE */
+  .sails-code-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--bg-card-alt);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 14px 22px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-top: -1px;
+  }
+  .sails-code-note-icon {
+    color: var(--cyan);
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
   /* INLINE LINK */
   .sails-inline-link {
     color: var(--cyan);
@@ -1138,7 +1161,11 @@ Cross-module communication must use:
 <span class="good"> business logic. Use Domain Events for cross-module communication.</span>
 <span class="good"> Follow the architecture defined in .ai-guardrails.md."</span>
 
-<span class="comment">// The prompt is intentionally more comprehensive to ensure the generated output adheres to the intended architectural design.</span></code></pre>
+</code></pre>
+  </div>
+  <div class="sails-code-note sails-reveal">
+    <span class="sails-code-note-icon">&#8594;</span>
+    The prompt is intentionally more comprehensive to ensure<br>the generated output adheres to the intended architectural design.
   </div>
 
   <!-- Section 9 — How to Start -->
